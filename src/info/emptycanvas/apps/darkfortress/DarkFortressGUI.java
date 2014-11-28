@@ -21,7 +21,7 @@ public final class DarkFortressGUI extends JFrame implements KeyListener, Runnab
     public DarkFortressGUI(Class clazz) {
         String Title = "Dark Fortress ";
         
-        mover = new GameMover(new Sol());
+        mover = new GameMover(new SolPlan());
         
         this.drawerType = clazz;
         

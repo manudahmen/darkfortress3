@@ -154,7 +154,7 @@ public class PanelGraphics extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Class classForSol = null ;//= Sol.class;
         if (jComboBoxTerrain.getSelectedIndex() == 0) {
-            classForSol = Sol.class;
+            classForSol = SolPlan.class;
         } else if (jComboBoxTerrain.getSelectedIndex() == 1) {
             classForSol = SolRelief.class;
         } else if (jComboBoxTerrain.getSelectedIndex() == 2) {

@@ -149,6 +149,18 @@ public class JoglDrawer implements Drawer, GLEventListener {
             renderer.draw(text, 10, 10);
             renderer.endRendering();
         }
+        /*public void drawCard(Card c, GLU glu, GL2 gl)
+        {
+            //Buffer buffer;
+            Dimension d = new Dimension(1,1);
+            if(component instanceof JFrame)
+		{
+			d = ((JFrame)component).getSize();
+		}
+                //gl.glDrawPixels(0, 0, d.getWidth(), d.getHeight(),  buffer);
+            
+        }*/
+        
         
         @Override
 	public void display(GLAutoDrawable gLDrawable) {

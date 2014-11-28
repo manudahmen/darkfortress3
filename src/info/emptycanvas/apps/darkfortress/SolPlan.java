@@ -7,11 +7,11 @@ import info.emptycanvas.library.object.RepresentableConteneur;
 import java.util.Iterator;
 
 @SuppressWarnings("serial")
-public class Sol extends Terrain {
+public class SolPlan extends Terrain {
 
     
 
-    public Sol() {
+    public SolPlan() {
         ps = new ParametrizedSurface() {
 
             @Override
@@ -21,7 +21,7 @@ public class Sol extends Terrain {
 
             @Override
             public Point3D calculerVitesse3D(double u, double v) {
-                return new Point3D(u, 0, v);
+                return new Point3D(u, 0, 0);
             }
         };
         SolPP sol = new SolPP(ps);
