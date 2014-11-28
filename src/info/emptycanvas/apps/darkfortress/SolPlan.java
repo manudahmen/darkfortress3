@@ -21,7 +21,7 @@ public class SolPlan extends Terrain {
 
             @Override
             public Point3D calculerVitesse3D(double u, double v) {
-                return new Point3D(u, 0, 0);
+                return new Point3D(0, 0, 1);
             }
         };
         SolPP sol = new SolPP(ps);
