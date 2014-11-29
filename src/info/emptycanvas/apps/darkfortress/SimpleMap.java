@@ -25,7 +25,7 @@ import java.util.Iterator;
  *
  * @author Manuel Dahmen <ibiiztera.it@gmail.com>
  */
-public class SimpleCard extends Card
+public class SimpleMap extends Map
 {
     private Point3D gamePosition;
     private final Camera camera;
@@ -37,7 +37,7 @@ public class SimpleCard extends Card
         return polygones;
     }
     
-    public SimpleCard()
+    public SimpleMap()
     {
         polygones = new ArrayList<Polygone>();
         camera = new Camera(new Point3D(0.5,1,0.5), new Point3D(0.5,0,0.5));
@@ -48,7 +48,7 @@ public class SimpleCard extends Card
         return camera;
     }
 
-    public void update()
+    public void prepareImage()
     {
         z = ZBufferFactory.instance(width, height);
         z.scene(new Scene());
@@ -71,6 +71,7 @@ public class SimpleCard extends Card
     
     @Override
     public BufferedImage genererImage() {
+        prepareImage();
         return z.image();
     }
 

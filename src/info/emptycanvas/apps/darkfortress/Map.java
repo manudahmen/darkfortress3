@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
  *
  * @author Manuel Dahmen <ibiiztera.it@gmail.com>
  */
-public abstract class Card {
+public abstract class Map {
     public final int CARD_TYPE_COLORS = 0;
     public final int CARD_TYPE_POLYGONS = 1;
     protected int width;
