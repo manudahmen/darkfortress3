@@ -21,9 +21,9 @@ public interface Mover {
 
     public void update();
 
-    public void acc();
+    public void acc(long timeMillis);
 
-    public void dec();
+    public void dec(long timeMillis);
 
     public int state();
 
@@ -33,9 +33,9 @@ public interface Mover {
 
     public Point2D direction();
 
-    public void rotationGauche();
+    public void rotationGauche(long timeMillis);
 
-    public void rotationDroite();
+    public void rotationDroite(long timeMillis);
 
     public void testCollision();
 

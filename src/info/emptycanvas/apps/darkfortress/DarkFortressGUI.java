@@ -98,22 +98,22 @@ public final class DarkFortressGUI extends JFrame implements KeyListener, Runnab
 
     }
 
-    private void cont() {
+    private void cont(long timeKeyPress) {
         if (!release_up) {
-            mover.acc();
-            System.out.println("Acc");
+            mover.acc(timeKeyPress);
+            //System.out.println("Acc");
         }
         if (!release_down) {
-            mover.dec();
-            System.out.println("Dec");
+            mover.dec(timeKeyPress);
+            //System.out.println("Dec");
         }
         if (!release_left) {
-            mover.rotationGauche();
-            System.out.println("Left");
+            mover.rotationGauche(timeKeyPress);
+            //System.out.println("Left");
         }
         if (!release_right) {
-            mover.rotationDroite();
-            System.out.println("Right");
+            mover.rotationDroite(timeKeyPress);
+            //System.out.println("Right");
         }
     }
 
@@ -123,15 +123,14 @@ public final class DarkFortressGUI extends JFrame implements KeyListener, Runnab
 
     @Override
     public void run() {
+            long timeBefore = System.currentTimeMillis();
+            long timeAfter = timeBefore;
         while (true) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(DarkFortressGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            cont();
+            timeBefore = System.currentTimeMillis();
+            cont(timeAfter-timeBefore);
+            timeAfter = System.currentTimeMillis();
         }
+        
     }
 
     private void gagne() {

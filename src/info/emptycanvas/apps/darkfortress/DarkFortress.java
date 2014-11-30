@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JApplet;
-
+/*
 @SuppressWarnings("serial")
 public class DarkFortress extends JApplet implements KeyListener {
 	private Mover mover;
@@ -69,3 +69,4 @@ public class DarkFortress extends JApplet implements KeyListener {
 	}
 	
 }
+*/

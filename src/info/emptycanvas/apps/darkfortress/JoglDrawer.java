@@ -171,16 +171,16 @@ public class JoglDrawer implements Drawer, GLEventListener {
 
         Point3D pos = mover.calcCposition();
         Point3D dir = mover.calcDirection();
-
+        Point3D del = dir.moins(pos);
         glu.gluLookAt(pos.get(0), pos.get(1),
-                pos.get(2), pos.plus(dir)
-                .get(0), pos.plus(dir).get(1),
-                pos.plus(dir).get(2),
-                dir.prodVect(Point3D.Y.prodVect(dir))
+                pos.get(2), dir
+                .get(0), dir.get(1),
+                dir.get(2),
+                del.prodVect(Point3D.Y.prodVect(del))
                 .norme1().get(0),
-                dir.prodVect(Point3D.Y.prodVect(dir))
+                del.prodVect(Point3D.Y.prodVect(del))
                 .norme1().get(1),
-                dir.prodVect(Point3D.Y.prodVect(dir))
+                del.prodVect(Point3D.Y.prodVect(del))
                 .norme1().get(2));
 
         draw(ennemi, glu, gl);

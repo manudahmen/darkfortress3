@@ -89,7 +89,7 @@ public class PanelGraphics extends javax.swing.JDialog {
         jLabel4.setText(bundle.getString("PanelGraphics.jLabel4.text")); // NOI18N
         jLabel4.setName("jLabel4"); // NOI18N
 
-        jComboBoxTerrain.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Plan", "Sinusoide", "Sinusoide Mouvante" }));
+        jComboBoxTerrain.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Plan", "Sinusoide", "Sinusoide Mouvante", " " }));
         jComboBoxTerrain.setToolTipText(bundle.getString("PanelGraphics.jComboBoxTerrain.toolTipText")); // NOI18N
         jComboBoxTerrain.setName("jComboBoxTerrain"); // NOI18N
 
@@ -160,13 +160,16 @@ public class PanelGraphics extends javax.swing.JDialog {
         } else if (jComboBoxTerrain.getSelectedIndex() == 2) {
             classForSol = SolReliefMouvant.class;
         }
-        DarkFortressGUI df = null;
+        DarkFortressGUI df;
         if (jRadioButtonECGraph.isSelected()) {
 
             df = new DarkFortressGUI(EcDrawer.class);
-        } else if (jRadioButtonOGLGraph.isSelected()) {
+        } else {
             df = new DarkFortressGUI(JoglDrawer.class);
         }
+        if(classForSol==null)
+            throw new NullPointerException("classForSol == null");
+        
         df.setLevel(classForSol);
         df.setVisible(true);
 

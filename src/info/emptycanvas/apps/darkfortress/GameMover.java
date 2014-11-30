@@ -8,6 +8,8 @@ import info.emptycanvas.library.object.Representable;
 import info.emptycanvas.library.tribase.TRISphere;
 
 public class GameMover implements Mover{
+    private double unitPerMillis = 1.0/10000;
+    private double rotationPerMillis = 1.0/10000;
     private Point2D position2D = new Point2D (0.5, 0.5);
     private Point2D direction2D= new Point2D (0, 1);
     private final double hauteur = 0.01;
@@ -34,14 +36,14 @@ public class GameMover implements Mover{
     }
 
     @Override
-    public void acc() {
+    public void acc(long timeMillis) {
         
-        position2D = position2D.plus(direction2D.mult(positionIncrement));
+        position2D = position2D.plus(direction2D.mult(timeMillis*unitPerMillis));
     }
 
     @Override
-    public void dec() {
-        position2D = position2D.moins(direction2D.mult(positionIncrement));
+    public void dec(long timeMillis) {
+        position2D = position2D.moins(direction2D.mult(timeMillis*unitPerMillis));
     }
 
     @Override
@@ -65,8 +67,8 @@ public class GameMover implements Mover{
     }
 
     @Override
-    public void rotationGauche() {
-        angle = angle + Math.PI * 2 / 360 * 10;
+    public void rotationGauche(long timeMillis) {
+        angle = angle + Math.PI * 2 / 360 * rotationPerMillis*timeMillis;
         direction2D =
                 new Point2D(
                 directionNorme * Math.sin(angle),
@@ -74,8 +76,8 @@ public class GameMover implements Mover{
     }
 
     @Override
-    public void rotationDroite() {
-        angle = angle - Math.PI * 2 / 360 * 10;
+    public void rotationDroite(long timeMillis) {
+        angle = angle - Math.PI * 2 / 360 * rotationPerMillis*timeMillis;
         direction2D =
                 new Point2D(
                 directionNorme * Math.sin(angle),

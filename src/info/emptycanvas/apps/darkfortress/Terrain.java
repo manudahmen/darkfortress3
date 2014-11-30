@@ -29,8 +29,8 @@ public abstract class Terrain extends RepresentableConteneur {
         return ps.calculerPoint3D(u, v);
     }
 
-    public Point3D calcDirection(double u, double v) {
-        return ps.calculerVitesse3D(u, v);
-    }
+    //public Point3D calcDirection(double u, double v) {
+    //    return ps.calculerVitesse3D(u, v);
+    //}
 
 }
