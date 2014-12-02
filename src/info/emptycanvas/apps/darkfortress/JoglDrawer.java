@@ -29,7 +29,7 @@ public class JoglDrawer implements Drawer, GLEventListener {
     private GLU glu = new GLU();
     private Object component;
     private Mover mover;
-    private Terrain sol;
+    private Terrain terrain;
     private Bonus ennemi;
     private TextRenderer renderer;
     private Vaisseau vaisseau;
@@ -37,8 +37,6 @@ public class JoglDrawer implements Drawer, GLEventListener {
     public JoglDrawer(DarkFortressGUI darkFortressGUI) {
         this.component = darkFortressGUI;
 
-        sol = new SolRelief();
-        ennemi = new Bonus(sol);
         GLProfile profile = GLProfile.getDefault();
         GLCapabilities capabilities = new GLCapabilities(profile);
         capabilities.setDoubleBuffered(true);
@@ -184,7 +182,7 @@ public class JoglDrawer implements Drawer, GLEventListener {
                 .norme1().get(2));
 
         draw(ennemi, glu, gl);
-        draw(sol, glu, gl);
+        draw(terrain, glu, gl);
         draw(vaisseau.getObject(), glu, gl);
         draw("Score :  " + mover.score(), Color.WHITE, glu, gl);
 
@@ -269,7 +267,8 @@ public class JoglDrawer implements Drawer, GLEventListener {
 
         mover.ennemi(ennemi);
         vaisseau = new Vaisseau(mover);
-
+        terrain = ((GameMover)mover).getTerrain();
+        ennemi = new Bonus(terrain);
     }
 
 }

@@ -68,7 +68,7 @@ public class GameMover implements Mover{
 
     @Override
     public void rotationGauche(long timeMillis) {
-        angle = angle + Math.PI * 2 / 360 * rotationPerMillis*timeMillis;
+        angle = angle + Math.PI * 2  * rotationPerMillis*timeMillis;
         direction2D =
                 new Point2D(
                 directionNorme * Math.sin(angle),
@@ -77,7 +77,7 @@ public class GameMover implements Mover{
 
     @Override
     public void rotationDroite(long timeMillis) {
-        angle = angle - Math.PI * 2 / 360 * rotationPerMillis*timeMillis;
+        angle = angle - Math.PI * 2 * rotationPerMillis*timeMillis;
         direction2D =
                 new Point2D(
                 directionNorme * Math.sin(angle),
@@ -87,6 +87,8 @@ public class GameMover implements Mover{
 
     @Override
     public void testCollision() {
+        if(ennemi==null)
+            return;
         Iterator<Representable> it = ennemi.iterator();
 
         while (it.hasNext()) {
@@ -162,6 +164,10 @@ public class GameMover implements Mover{
 
     public Point3D calculerDirectionAuSol(Point2D position2D) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Terrain getTerrain() {
+        return terrain;
     }
     
 }

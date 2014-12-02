@@ -14,7 +14,7 @@ public class EcDrawer implements Drawer, Runnable {
 
     private DarkFortressGUI component;
     private Mover logic;
-    private Terrain sol;
+    private Terrain terrain;
     private Bonus ennemi;
     private ZBuffer z;
     private int w, h, aw, ah;
@@ -23,9 +23,7 @@ public class EcDrawer implements Drawer, Runnable {
     public EcDrawer(DarkFortressGUI darkFortress) {
         this.component = darkFortress;
 
-        sol = new SolRelief();
-        ennemi = new Bonus(sol);
-
+ 
         z = ZBufferFactory.instance(100, 100);
 
         new Thread(this).start();
@@ -87,7 +85,7 @@ public class EcDrawer implements Drawer, Runnable {
 
             z.scene(new Scene());
 
-            z.scene().add(sol);
+            z.scene().add(terrain);
             z.scene().add(ennemi);
             z.scene().add(vaisseau.getObject());
             z.scene().cameraActive(new Camera(
