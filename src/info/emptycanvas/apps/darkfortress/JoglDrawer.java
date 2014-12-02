@@ -36,8 +36,9 @@ public class JoglDrawer implements Drawer, GLEventListener {
 
     public JoglDrawer(DarkFortressGUI darkFortressGUI) {
         this.component = darkFortressGUI;
-        
-        
+
+        sol = new SolRelief();
+        ennemi = new Bonus(sol);
         GLProfile profile = GLProfile.getDefault();
         GLCapabilities capabilities = new GLCapabilities(profile);
         capabilities.setDoubleBuffered(true);
@@ -265,10 +266,10 @@ public class JoglDrawer implements Drawer, GLEventListener {
     @Override
     public void setLogic(Mover m) {
         this.mover = m;
+
         mover.ennemi(ennemi);
         vaisseau = new Vaisseau(mover);
-        sol = ((GameMover)mover).getTerrain();
-        ennemi = new Bonus(sol);
+
     }
 
 }

@@ -23,6 +23,8 @@ public class EcDrawer implements Drawer, Runnable {
     public EcDrawer(DarkFortressGUI darkFortress) {
         this.component = darkFortress;
 
+        sol = new SolRelief();
+        ennemi = new Bonus(sol);
 
         z = ZBufferFactory.instance(100, 100);
 
@@ -42,14 +44,12 @@ public class EcDrawer implements Drawer, Runnable {
      */
 
     @Override
-    public void setLogic(Mover mover) {
-        this.logic = mover;
+    public void setLogic(Mover l) {
+        this.logic = l;
 
         logic.ennemi(ennemi);
-        vaisseau = new Vaisseau(mover);
-        sol = ((GameMover)mover).getTerrain();
-        ennemi = new Bonus(sol);
-   }
+        vaisseau = new Vaisseau(l);
+    }
 
     /* (non-Javadoc)
      * @see be.ibiiztera.darkfortress.Drawer#run()
