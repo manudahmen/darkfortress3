@@ -9,7 +9,7 @@ import info.emptycanvas.library.tribase.TRISphere;
 
 public class GameMover implements Mover{
     private double unitPerMillis = 1.0/10000;
-    private double rotationPerMillis = 1.0/10000;
+    private double rotationPerMillis = 2.0/1000;
     private Point2D position2D = new Point2D (0.5, 0.5);
     private Point2D direction2D= new Point2D (0, 1);
     private final double hauteur = 0.01;
@@ -25,6 +25,10 @@ public class GameMover implements Mover{
     protected static final int STATE_GAME_IN_PROGRESS = 1;
     private boolean gagne = false;
     private Terrain terrain;
+
+    public Terrain getTerrain() {
+        return terrain;
+    }
 
     public GameMover(Terrain t) {
         this.terrain = t;
@@ -87,6 +91,8 @@ public class GameMover implements Mover{
 
     @Override
     public void testCollision() {
+        if(ennemi!=null)
+        {
         Iterator<Representable> it = ennemi.iterator();
 
         while (it.hasNext()) {
@@ -109,7 +115,7 @@ public class GameMover implements Mover{
             }
 
         }
-
+        }
     }
 
     @Override
