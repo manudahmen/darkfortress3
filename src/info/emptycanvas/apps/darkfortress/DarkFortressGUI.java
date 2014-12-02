@@ -128,7 +128,7 @@ public final class DarkFortressGUI extends JFrame implements KeyListener, Runnab
         while (true) {
             timeBefore = System.currentTimeMillis();
             cont(timeAfter-timeBefore);
-            timeAfter = timeBefore;
+            timeAfter = System.currentTimeMillis();
         }
         
     }
